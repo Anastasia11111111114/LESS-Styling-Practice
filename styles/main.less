@@ -1,0 +1,78 @@
+//Import Styles
+@import "base/_reset.less";
+@import "base/_typography.less";
+@import "components/_button.less";
+@import "components/_header.less";
+
+//buttons
+@button-bg: #349;
+@button-hover-bg: blueviolet;
+@button-color: #fff;
+@button-padding: 10px 20px;
+@button-border-radius: 5px;
+@button-font-size:16px;
+@button-border:none;
+@button-transition: all 0.3s ease;
+
+.my-button{
+    background-color: @button-bg;
+    color: @button-color;
+    padding: @button-padding;
+    border-radius: @button-border-radius;
+    font-size: @button-font-size;
+    border: @button-border;
+    cursor:pointer;
+    transition: @button-transition;
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+    &:hover{
+        background-color: @button-hover-bg;
+        transform: scale(1.05);
+
+    }
+}
+
+//grid-columns
+@grid-columns:12;
+@gutter-width:20px;
+
+.column(@columns: 1){
+    width:percentage((@column / @grid-columns));
+    float:left;
+    padding: 0 @gutter-width;
+    box-sizing: border-box;
+    margin-left: -@gutter-width / 2;
+    margin-right: -@gutter-width /2;
+    &:after{
+        content:"";
+        display: table;
+        clear: both;
+    }
+}
+
+.container{
+    width: 100%;
+    padding: 0 @gutter-width;
+    box-sizing: border-box;
+}
+
+.col{
+    .column(3);
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+@media(max-width:760px) {
+    .col{
+        .column(6);
+    }
+}
+
+@media(max-width:480px){
+    .col{
+        .column(12);
+    }
+}
